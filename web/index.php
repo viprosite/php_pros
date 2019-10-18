@@ -18,10 +18,10 @@
         <a class="nav_l" href="#"><img src="./img/Logo.png" alt=""></a>
         <div class="nav_r">
         <?php 
-          $servername = "125.65.82.84";
-          $username = "prick";
-          $password = "prick666";
-          $database = 'prick';
+          $servername = "xx";
+          $username = "x";
+          $password = "x";
+          $database = 'x';
           // 创建连接
           $con = new mysqli($servername, $username, $password);
           // 检测连接
