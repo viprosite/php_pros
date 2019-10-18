@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db_syb@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="db_syb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="blog"/>
+    <schema id="4" parent="1" name="db_u2u"/>
+    <schema id="5" parent="1" name="idea"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="laravel"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="phpexam"/>
+    <table id="11" parent="2" name="syb_admin"/>
+    <table id="12" parent="2" name="syb_exam_paper"/>
+    <table id="13" parent="2" name="syb_formal_exam"/>
+    <table id="14" parent="2" name="syb_mock_test_exam"/>
+    <table id="15" parent="2" name="syb_msg"/>
+    <table id="16" parent="2" name="syb_news"/>
+    <table id="17" parent="2" name="syb_question_bank"/>
+    <table id="18" parent="2" name="syb_question_type_exam"/>
+    <table id="19" parent="2" name="syb_reg_exam"/>
+    <table id="20" parent="2" name="syb_test_point_exam"/>
+    <table id="21" parent="2" name="syb_user"/>
+    <column id="22" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="11" name="admin_name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="11" name="admin_password">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="11" name="add_at">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="11" name="update_at">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="27" parent="11" name="last_login_time">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="28" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="12" name="finish_time">
+      <Position>2</Position>
+      <Comment>完成时间</Comment>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <column id="31" parent="12" name="exam_num">
+      <Position>3</Position>
+      <Comment>考试有几场</Comment>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <column id="32" parent="12" name="stu_num">
+      <Position>4</Position>
+      <Comment>每场容纳学生数</Comment>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="33" parent="12" name="question_2_id">
+      <Position>5</Position>
+      <Comment>抽到的判断题题目id对应的数组</Comment>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="34" parent="12" name="question_4_id">
+      <Position>6</Position>
+      <Comment>抽到的单选题题目id组成的数组</Comment>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="35" parent="12" name="score_2">
+      <Position>7</Position>
+      <Comment>判断题分支</Comment>
+      <DataType>tinyint(2)|0</DataType>
+    </column>
+    <column id="36" parent="12" name="score_4">
+      <Position>8</Position>
+      <Comment>单选题分值</Comment>
+      <DataType>tinyint(2)|0</DataType>
+    </column>
+    <column id="37" parent="12" name="add_time">
+      <Position>9</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="38" parent="12" name="operator">
+      <Position>10</Position>
+      <Comment>谁组卷</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="39" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="13" name="student_id">
+      <Position>2</Position>
+      <DataType>int(20)|0</DataType>
+    </column>
+    <column id="42" parent="13" name="student_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="43" parent="13" name="submit_time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="44" parent="13" name="grades">
+      <Position>5</Position>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <column id="45" parent="13" name="detail">
+      <Position>6</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="46" parent="13" name="answer_ok">
+      <Position>7</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="47" parent="13" name="paper_id">
+      <Position>8</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <key id="48" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="14" name="student_id">
+      <Position>2</Position>
+      <DataType>int(20)|0</DataType>
+    </column>
+    <column id="51" parent="14" name="submit_time">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="52" parent="14" name="grades">
+      <Position>4</Position>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <column id="53" parent="14" name="detail">
+      <Position>5</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="54" parent="14" name="answer_ok">
+      <Position>6</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <key id="55" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="15" name="sender">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="15" name="receiver">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="15" name="content">
+      <Position>4</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="15" name="send_time">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="15" name="viewor">
+      <Position>6</Position>
+      <Comment>查看与否，默认未查看0，查看后置为1</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="15" name="title">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="63" parent="15" name="state">
+      <Position>8</Position>
+      <Comment>删除为0，默认为1</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="64" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="16" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="16" name="content">
+      <Position>3</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="16" name="operator">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="16" name="add_at">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="16" name="seenums">
+      <Position>6</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="71" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="72" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="73" parent="17" name="question_type">
+      <Position>2</Position>
+      <Comment>问题类型：2判断  4选择 44多选</Comment>
+      <DataType>tinyint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="17" name="title">
+      <Position>3</Position>
+      <Comment>问题题目</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="17" name="answer_a">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="76" parent="17" name="answer_b">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="77" parent="17" name="answer_c">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="78" parent="17" name="answer_d">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="79" parent="17" name="answer_ok">
+      <Position>8</Position>
+      <Comment>正确答案</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="17" name="add_time">
+      <Position>9</Position>
+      <Comment>出题时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="17" name="test_point">
+      <Position>10</Position>
+      <Comment>考点</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="82" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="83" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="84" parent="18" name="student_id">
+      <Position>2</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="18" name="question_type">
+      <Position>3</Position>
+      <DataType>tinyint(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="18" name="grade">
+      <Position>4</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="18" name="grade_detail">
+      <Position>5</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="18" name="exam_time">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="89" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="90" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="91" parent="19" name="student_id">
+      <Position>2</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="92" parent="19" name="reg_exam_state">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="93" parent="19" name="reg_exam_time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="19" name="exam_num">
+      <Position>5</Position>
+      <Comment>选择的考试场次数</Comment>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <key id="95" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="96" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="97" parent="20" name="student_id">
+      <Position>2</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="20" name="test_point">
+      <Position>3</Position>
+      <Comment>考点</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="20" name="grade">
+      <Position>4</Position>
+      <Comment>某个考点的成绩（正确个数）</Comment>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="20" name="exam_time">
+      <Position>5</Position>
+      <Comment>作答时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="20" name="grade_detail">
+      <Position>6</Position>
+      <Comment>作答详细记录</Comment>
+      <DataType>longtext|0</DataType>
+    </column>
+    <key id="102" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="103" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>int(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="104" parent="21" name="student_id">
+      <Position>2</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="21" name="student_name">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="106" parent="21" name="password">
+      <Position>4</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="21" name="register_at">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="108" parent="21" name="update_at">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="109" parent="21" name="state">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="110" parent="21" name="email">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="111" parent="21" name="student_id">
+      <ColNames>student_id</ColNames>
+    </index>
+    <key id="112" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

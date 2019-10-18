@@ -1,0 +1,64 @@
+{
+question_type: '判断题',
+title: '这是判断题目1的题目',
+test_point: '第一章考点1',
+answer_ok: 'y'
+},
+{
+question_type: '单选题',
+title: '这是单选题目1的题目',
+test_point: '第一章单选考点1',
+answer_a: '这是选项a',
+answer_b: '这是选项b',
+answer_c: '这是选项c',
+answer_d: '这是选项d',
+answer_ok: 'a'
+},
+{
+question_type: '多选题',
+title: '这是判多选题目1的题目',
+test_point: '第一章多选考点1',
+answer_a: '这是选项a',
+answer_b: '这是选项b',
+answer_c: '这是选项c',
+answer_d: '这是选项d',
+answer_ok: 'ac'
+}
+
+----------------------------------------------------
+导入题库前请把虚线及虚线内文字删除！
+1.以上是各种题型的模板，一个{  }表示一题；
+2.可复制各种题型的{}模板后填写，各个{}之间需以英文逗号 , 隔开；
+3.您需要填写的只是在对应题型的 {} 中填写题目、考点、题目选项及正确选项。
+以下为样题：
+{"question_type": "判断题",
+"title": "招聘人员试用期一律为三个月",
+"test_point": "试用期",
+"answer_ok": "n"
+},
+{"question_type": "判断题",
+"title": "业主要根据自己企业的实际情况决定商业保险的险种，不要过度依赖保险",
+"test_point": "保险",
+"answer_ok": "y"
+},
+{"question_type": "单选题",
+"title": "差异化策略带来的风险",
+"test_point": "差异化",
+"answer_a": "供给大众化",
+"answer_b": "被更为差异化的产品替代",
+"answer_c": "无法使消费者对品牌忠诚","
+answer_d": "增加的成本可能会超过差异化带来的利润",
+"answer_ok": "c"
+},
+{"question_type": "单选题",
+"title": "差异化不能给消费者带来的利益",
+"test_point": "差异化",
+"answer_a": "产品质量更好",
+"answer_b": "产品价格更低",
+"answer_c": "购买力上升",
+"answer_d": "享受的服务更好",
+"answer_ok": "c"
+}
+导入题库前请把该部分文字删除！
+------------------------------------------
+

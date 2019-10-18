@@ -1,0 +1,71 @@
+#logo{
+    margin-top: -13px;
+    margin-left: -15px;
+}
+#logo-right-text{
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.login-title{
+    font-weight:bold;
+    font-size: 20px;
+    /*margin-left: 30%;*/
+}
+#login-box{
+    width: 90%;
+    margin: 0px auto;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+#login-img{
+    margin-bottom: 10%;
+}
+#code-box{
+    position: relative;
+}
+.code{
+    position: absolute;
+    right: 12%;
+    top:0;
+    border:1px solid #ccc;
+}
+.code-help{
+    color: #aaa;
+    font-size: 13px;
+}
+#user-name{
+    color: dimgray;
+}
+.checkname{
+    position: absolute;
+    right: -13%;
+    top: 5px;
+    /*display: none;*/
+}
+ .caption a{
+    transition: all 500ms;
+}
+.caption a:hover{
+    color: #000;
+    border:1px solid #333;
+    background-color: #f2f2f2;
+}
+.caption>i{
+    font-size: 40px;
+    display: inline-block;
+    margin-left: 45px;
+    margin-bottom: 25px;
+}
+.thumbnail{
+    transition: box-shadow 350ms;
+}
+.thumbnail:hover{
+    box-shadow: 2px 2px 10px lightgray, -2px -2px 10px lightgray;
+}
+.thumbnail h5{
+    font-weight: bold;
+}
+.exam_time{
+
+}

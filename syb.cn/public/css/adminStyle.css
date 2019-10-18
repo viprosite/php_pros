@@ -1,0 +1,169 @@
+body{
+    background-color: #fff;
+}
+.container{
+    position: relative;
+}
+.form-group{
+    margin:0 !important;
+}
+.logo-text{
+    margin-left: 40%;
+    margin-top: 80px;
+
+}
+#logo-right-text{
+    display: inline-block;
+    font-size: 20px;
+    font-weight:bold;
+    margin-bottom: 30px;
+    margin-left: -10px;
+}
+#admin-logo{
+    height: 120px;
+    margin-bottom: 20px;
+}
+#code-box{
+    position: relative;
+}
+#code{
+    display: inline-block;
+    position: absolute;
+    left: 120px;
+    top:0;
+    border:1px solid #ccc;
+}
+
+/*后台首页*/
+#nav{
+    height: 50px;
+    line-height: 50px;
+    background-color: #222;
+}
+.header-text{
+    color: #9D9D9D;
+    font-weight: bold;
+    display: inline-block;
+    margin:0;
+    width: 151px;
+    padding:15px 0px 15px 20px;
+    background-color: #000;
+}
+#nav ul{
+    padding:0;
+}
+#nav ul li{
+    display: inline-block;
+    list-style: none;
+    height: 49px;
+    line-height: 49px;
+    /*border-left: 1px solid white;*/
+}
+.header-nav:last-child{
+    margin-right: 50px;
+}
+.header-nav a{
+    display: inline-block;
+    /*height: 49px;*/
+    /*line-height: 49px;*/
+    color: #9D9D9D;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.header-nav a:hover{
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+}
+#admin-name{
+    color: whitesmoke;
+}
+#left-nav{
+    position: fixed;
+    width: 151px;
+    background-color: #f2f2f2;
+    padding-bottom: 50%;
+    border-right: 1px solid #ccc;
+}
+#left-nav a{
+    color: #333;
+    font-weight:700;
+}
+/*#left-nav li:last-child a{*/
+    /*color: #888;*/
+/*}*/
+#left-nav a:hover{
+    background-color: #000;
+    color: #fff;
+}
+.top-msg{
+    position: relative;
+    left: 350px;
+    top: 10px;
+    z-index:10;
+    width:30%;
+    font-weight: 900;
+    font-size: 16px;
+}
+.top_msg2{
+    width:90%;
+    color: red;
+}
+.changepasswordtop{
+    margin-top: 10px;
+}
+/*iframe*/
+#iframe-box{
+    position: fixed;
+    left: 151px;
+    top: 50px;
+    bottom: 30px;
+    right:0;
+}
+.frame-header{
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #f2f2f2;
+    font-size: 13px;
+    padding-left: 30px;
+}
+.well-box{
+    width:98%;
+    margin-top: 10px;
+}
+.change-well{
+    width:50%;
+    margin-left: 20%;
+    margin-top: 2%;
+}
+.title{
+    margin-left: -15%;
+}
+.action{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.table, .table tr, .table th,.table td{
+    text-align: center;
+}
+/*底部*/
+#footer{
+    position: fixed;
+    bottom:0;
+    left: 151px;
+    height: 30px;
+    width:100%;
+    line-height: 30px;
+    padding-left: 27%;
+    background-color: #f2f2f2;
+    border-top: 1px solid #ccc;
+}
+#footer p{
+    color: #696969;
+}
+.answers li{
+    display: inline-block;
+    width:47%;
+}
