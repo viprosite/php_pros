@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="__CSS__/font.css">
+        <link rel="stylesheet" href="__CSS__/xadmin.css">
+        <script src="__LIB__/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="__JS__/xadmin.js"></script>
+        <!--<script src="__LIB__/bootstrap/js/bootstrap.js"></script>-->
+        <link rel="stylesheet" href="__LIB__/bootstrap/css/bootstrap.css">
+        <!--[if lt IE 9]>
+          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="x-nav">
+          <!--<span class="layui-breadcrumb">-->
+            <!--<a href="">首页</a>-->
+            <!--<a href="">演示</a>-->
+            <!--<a>-->
+              <!--<cite>导航元素</cite></a>-->
+          <!--</span>-->
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body layui-table-body layui-table-main" id="tablebox">
+                            <table class="layui-table layui-form" id="pretable">
+                                <thead>
+                                  <tr>
+                                    <th>字段</th>
+                                    <th>新值（点击修改）</th>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                      <td>官网地址</td>
+                                        <td data-w="'{$info.website}'">
+                                            <input  id="website"  type="text" style="border: none;width:300px;height: 25px;" data-o="{$info.website}" value="{$info.website}">
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                      <td>官网邮箱</td>
+                                      <td  data-e="'{$info.email}'">
+                                          <input id="email"  type="text" style="border: none;width:300px;height: 25px;" data-o="{$info.email}" value="{$info.email}">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>联系方式</td>
+                                      <td   data-p="'{$info.phone}'">
+                                          <input id="phone" type="text" style="border: none;width:300px;height: 25px;" data-o="{$info.phone}" value="{$info.phone}">
+                                      </td>
+                                  </tr>
+								  <tr>
+                                      <td>开通城市（中文顿号分隔）</td>
+                                      <td   data-p="'{$info.opencity}'">
+                                          <input id="opencity" type="text" style="border: none;width:300px;height: 25px;" data-o="{$info.opencity}" value="{$info.opencity}">
+                                      </td>
+                                  </tr>
+                                   <tr>
+                                      <td>隐私政策管理</td>
+                                      <td>
+                                          <button type="button" onclick="xadmin.open('用户协议','{:url(\'Administration\','id=1')}',1200,800)" class="layui-btn layui-btn-normal">用户协议</button>
+                                          <button type="button" onclick="xadmin.open('隐私政策','{:url(\'Administration\','id=2')}',1200,800)" class="layui-btn layui-btn-normal">隐私政策</button>
+                                      </td>
+                                  </tr>                                 
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script>
+
+      document.getElementById('website').onblur = function(){
+        let oval = this.getAttribute('data-o')
+          let nval = this.value
+          if (nval == oval) {
+              return;
+          }else{
+              $.post("{:url('updateOtherinfo')}",{type:'website',newv: nval},function (res) {
+                  if(res.status == 200){
+                      layer.msg('修改成功!',{icon:1,time:1000});
+                  }
+              })
+          }
+      }
+      document.getElementById('email').onblur = function(){
+          let oval = this.getAttribute('data-o')
+          let nval = this.value
+          if (nval == oval) {
+              return;
+          }else{
+              $.post("{:url('updateOtherinfo')}",{type:'email',newv: nval},function (res) {
+                  if(res.status == 200){
+                      layer.msg('修改成功!',{icon:1,time:1000});
+                  }
+              })
+          }
+      }
+      document.getElementById('phone').onblur = function(){
+          let oval = this.getAttribute('data-o')
+          let nval = this.value
+          if (nval == oval) {
+              return;
+          }else{
+              $.post("{:url('updateOtherinfo')}",{type:'phone',newv: nval},function (res) {
+                  if(res.status == 200){
+                      layer.msg('修改成功!',{icon:1,time:1000});
+                  }
+              })
+          }
+      }
+
+
+
+          // $.post("{:url('doupdated')}",{
+          //     did: did,
+          //     newval: newval
+          // },function (res) {
+          //     if(res.status == 200){
+          //         layer.msg('修改成功!',{icon:1,time:1000});
+          //         setTimeout(function () {
+          //             var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+          //             parent.layer.close(index);
+          //         },1000)
+          //     }
+          // })
+
+      
+
+
+
+    </script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="__CSS__/font.css">
+        <link rel="stylesheet" href="__CSS__/xadmin.css">
+        <script type="text/javascript" src="__LIB__/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="__JS__/xadmin.js"></script>
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]--></head>
+    
+    <body>
+        <div class="layui-fluid" style="margin: 0 auto">
+            <div class="layui-row">
+                <form id="form" class="layui-form" style="">
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">用户ID：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="number" value="{$content[0]['uid']}" id="uid" disabled class="layui-input">
+                            <input type="hidden" value="{$content[0]['id']}" id="cid" disabled class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">昵称：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$content[2]['nickname']}"  disabled class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">标题：
+                        </label>
+                        <div class="">
+                            <div id="title" contenteditable="true" style="height:150px;width: 57%;margin-left: 112px;padding:10px;" value="{$content[0]['title']}" id="income" class="layui-input">{$content[0]['title']}</div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 50px;">
+                        <label for="L_pass" class="layui-form-label" style="display: inline-block;margin-right: 20px;">图片（视频）：
+                        </label>
+                        <div class="" style="">
+                            {volist name="content[1]['imgs']" id="img"}
+                            {if condition="strlen($img['video']) == 0"}
+                            <div style="display: inline-block;margin-right: 30px;margin-bottom: 30px;">
+                                <img src="http://app.tiaociapp.com/{$img['cover']}" alt="" style="max-width: 170px;">
+                            </div>
+                            {else /}
+                            <div style="width: 150px; height: 150px;display: inline-block;margin-right: 20px;margin-bottom: 30px;">
+                                <video style="width: 150px; height: 150px;margin-bottom: -55px;margin-right: 20px;" controls preload="auto" src="http://app.tiaociapp.com/{$img['video']}"></video>
+                            </div>
+                            {/if}
+                            {/volist}
+                        </div>
+                    </div>
+                    <div class="layui-form-item" >
+                        <button style="margin-left: 25%" class="layui-btn" id="updatebtn">确认修改</button>
+                        <button style="margin-left: 11%" class="layui-btn" id="del" data-cid="{$content[0]['id']}">违规删除</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="__JS__/jquery.js"></script>
+        <script>
+            layui.use(['form', 'layer'], function() {
+                $ = layui.jquery;
+                var form = layui.form,
+                layer = layui.layer;
+
+
+            });
+            $('#del').click(function (e) {
+                e.preventDefault()
+                let cid = $(this).attr('data-cid')
+                $.post("{:url('delcon')}",{cid: cid},function (res) {
+                    if(res.status == 200){
+                        layer.msg('删除成功',{icon: 1,time: 1000});
+                        parent.setT(title,cid)
+                        setTimeout(function () {
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index);
+
+                        },1000)
+
+                    }else{
+                        layer.msg('请稍后重试！',{icon: 5,time: 1000});
+                        setTimeout(function () {
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index);
+                        },1000)
+                    }
+                })            })
+            $('#updatebtn').click(function (e) {
+                e.preventDefault();
+                let title = $('div#title').text()
+                let cid = $('#cid').val()
+                let uid = $('#uid').val();
+                console.log(title)
+                $.post("{:url('cupdate')}",{uid:uid,cid: cid,title: title},function (res) {
+                    if(res.status == 200){
+                        layer.msg('修改成功',{icon: 1,time: 1000});
+                        parent.setT(title,cid)
+                        setTimeout(function () {
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index);
+
+                        },1000)
+
+                    }else{
+                        layer.msg('请稍后重试！',{icon: 5,time: 1000});
+                        setTimeout(function () {
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index);
+                        },1000)
+                    }
+                })
+            })
+
+        </script>
+
+    </body>
+
+</html>

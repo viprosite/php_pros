@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" type="text/css" href="http://v.bootstrapmb.com/2018/10/99q4h2703/css/style.css">
+        <script type="text/javascript" src="__JS__/lib/layui/layui.js" charset="utf-8"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div style="width: 80%;margin: 0px auto;text-align: center;">
+            <div style="margin: 0px auto">
+                <h1>{$privacy.title}</h1>     
+                <textarea id="container" name="content" class="content">{$privacy.content}</textarea>
+            </div>
+        </br>
+            <div onclick="baoc({$privacy.id})" style="background: blue;width: 100px;height: 50px;float: right;color: #fff;line-height: 50px;cursor:pointer">保存</div>
+        </div>              
+    <script type="text/javascript" src="__STATIC__/common/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__STATIC__/common/ueditor/ueditor.all.js"></script>
+    <script>
+  
+        var ue = UE.getEditor('container');
+         ue.ready(function() {
+          ue.setHeight(400);
+         //设置编辑器的内容
+         // ue.setContent('hello');
+         // //获取html内容，返回: <p>hello</p>
+         // var html = ue.getContent();
+         // //获取纯文本内容，返回: hello
+         // var txt = ue.getContentTxt();
+     });        
+         function baoc(id) {
+            var content = ue.getContent();  
+            if(content==""){
+                alert("不允许为空");
+                return false;
+            } 
+           var data = {id:id,content:content};
+           $.ajax({
+            url: '{:url('index/Administration')}',
+            type: 'POST',
+            data: data,
+            success: function (data) {
+                if (data==1) {
+                    alert('保存成功');
+                } else {
+                    alert('错误操作');
+                    return false;
+                }
+            },
+            error: function (data) {
+                tipTopShow("失败");
+            }
+        })           
+    }
+    </script>
+    </body>
+
+</html>

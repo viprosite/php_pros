@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="__CSS__/font.css">
+        <link rel="stylesheet" href="__CSS__/xadmin.css">
+        <script src="__LIB__/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="__JS__/xadmin.js"></script>
+        <script src="__JS__/jquery.js"></script>
+        <!--<script src="__LIB__/bootstrap/js/bootstrap.js"></script>-->
+        <link rel="stylesheet" href="__LIB__/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../../../../public/static/lib/layui/css/layui.css">
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    <form class="form-horizontal" style="margin-top:45px;" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="" class="col-xs-2 col-xs-offset-2 control-label">版本号：</label>
+            <div class="col-xs-5 col-md-6">
+                <input type="text" id="version">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-2 col-xs-offset-2 control-label">安卓包：</label>
+            <div class="col-xs-5 col-md-6">
+                <input type="file" id="aurl" style="width:320px;" name="aurl">
+            </div>
+            <button type="" class="btn btn-info" id="upand">上传安卓包</button>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-xs-2 col-xs-offset-2 control-label">IOS包：</label>
+            <div class="col-xs-5 col-md-6">
+                <input type="file" id="iurl" style="width:320px;" name="iurl">
+            </div>
+            <button type="" class="btn btn-info" id="upios">上传IOS包</button>
+        </div>
+
+    </form>
+        <script>
+            $('#upand, #upios').hide()
+            layui.use(['form', 'layer','jquery'], function() {
+                $ = layui.jquery;
+                var form = layui.form,
+                layer = layui.layer;
+            });
+
+            layui.use('laydate', function(){
+                var laydate = layui.laydate;
+
+                //执行一个laydate实例
+                laydate.render({
+                    elem: '#bir' //指定元素
+                });
+            });
+
+
+
+            $('#aurl').change(function () {
+                let aurl = $('#aurl').val()
+                if (!aurl || aurl.slice(-3) != 'apk') {
+                    layer.msg('请选择正确的安卓安装包!', {icon: 2, time: 1000});
+                    $('#aurl').val('')
+                    return;
+                }else{
+                    $('#upand').show()
+                }
+            })
+            $('#iurl').change(function () {
+                let iurl = $('#iurl').val()
+                if(!iurl || iurl.slice(-3) != 'ipk'){
+                    layer.msg('请选择正确的IOS包!',{icon:2,time:1000});
+                    $('#iurl').val('')
+                    return;
+                }else{
+                        $('#upios').show()
+                    }
+            })
+            $('#upand').click(function (e) {
+                e.preventDefault()
+                let version = $('#version').val()
+                let aurl = $('#aurl').val()
+                if (!version) {
+                    layer.msg('请输入版本号!', {icon: 2, time: 1000});
+                    return;
+                }else{
+                    formdata = new FormData();
+                    filedata = $("#aurl")[0].files[0];
+                    formdata.append('afile', filedata);
+                    formdata.append('version', version);
+                    formdata.append('type', 'a');
+                    $.ajax({
+                        url: "{:url('doadda')}",
+                        type: 'POST',
+                        cache: false,
+                        data: formdata,
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                        success: function(res, status, xhr) {
+                            if(res.status == 200){
+                                layer.msg('添加成功!',{icon:1,time:1000});
+                                setTimeout(function (){
+                                    parent.reload('1');
+                                    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                                    parent.layer.close(index);
+                                },1000)
+                            }else{
+                                layer.msg('添加失败，请检查必要项是否已完整填写!',{icon:2,time:1000});
+                            }
+                        }
+                    });
+                }
+            })
+            $('#upios').click(function (e) {
+                e.preventDefault()
+                let version = $('#version').val()
+                let iurl = $('#iurl').val()
+                if (!version) {
+                    layer.msg('请输入版本号!', {icon: 2, time: 1000});
+                    return;
+                }else{
+                    formdata = new FormData();
+                    filedata = $("#iurl")[0].files[0];
+                    formdata.append('ifile', filedata);
+                    formdata.append('version', version);
+                    formdata.append('type', 'i');
+                    $.ajax({
+                        url: "{:url('doadda')}",
+                        type: 'POST',
+                        cache: false,
+                        data: formdata,
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                        success: function(res, status, xhr) {
+                            if(res.status == 200){
+                                layer.msg('添加成功!',{icon:1,time:1000});
+                                setTimeout(function (){
+                                    parent.reload('1');
+                                    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                                    parent.layer.close(index);
+                                },1000)
+                            }else{
+                                layer.msg('添加失败，请检查必要项是否已完整填写!',{icon:2,time:1000});
+                            }
+                        }
+                    });
+                }
+            })
+        </script>
+    </body>
+</html>

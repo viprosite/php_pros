@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="__CSS__/font.css">
+        <link rel="stylesheet" href="__CSS__/xadmin.css">
+        <script type="text/javascript" src="__LIB__/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="__JS__/xadmin.js"></script>
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]--></head>
+    
+    <body>
+        <div class="layui-fluid" style="margin: 0 auto">
+            <div class="layui-row">
+                <form id="form" class="layui-form" style="padding-left: 20%;">
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">头像：
+                        </label>
+                        <div class="layui-input-inline">
+                            <img src="http://app.tiaociapp.com/{$user.headimgurl}" alt="" style="width: 50px;">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">用户ID：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="number" value="{$user.uname}" id="uid" disabled class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">昵称：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.nickname}" id="nickname" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">性别：
+                        </label>
+                        <div class="layui-input-inline">
+                            {if condition="$user.sex eq 1"}
+                            <input type="text" value="男" disabled class="layui-input">
+                            {else /}
+                            <input type="text" value="女" disabled class="layui-input">
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">生日：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="date" value="{$user.birthday}" disabled class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">身高(cm)：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.height}" id="height" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">体重(kg)：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.weight}" id="weight" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">婚否：
+                        </label>
+                        <div class="layui-input-inline">
+                            {if condition="$user.marital eq 1"}
+                            <input type="text" value="未婚" disabled class="layui-input">
+                            {else /}
+                            <input type="text" value="离异" disabled class="layui-input">
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">现居：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.location}" id="location" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">家乡：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.hometown}" disabled class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">学历：
+                        </label>
+                        <div class="layui-input-inline">
+                            {if condition="$user.education eq 1"}
+                            <input type="text" value="其他" disabled class="layui-input">
+                            {elseif condition="$user.education eq 2"}
+                            <input type="text" value="本科" disabled class="layui-input">
+                            {else /}
+                            <input type="text" value="硕士" disabled class="layui-input">
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">毕业院校：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.university}" disabled class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">职务：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.job}" id="job"  class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">公司名称：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.company}" id="company"  class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">收入：
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" value="{$user.income}" id="income" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" >
+                        <button style="margin-left: 25%" class="layui-btn" id="updatebtn">确认修改</button>
+                        <button style="margin-left: 11%" class="layui-btn" type="reset">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="__JS__/jquery.js"></script>
+        <script>
+            layui.use(['form', 'layer'], function() {
+                $ = layui.jquery;
+                var form = layui.form,
+                layer = layui.layer;
+
+
+            });
+            $('#updatebtn').click(function (e) {
+                e.preventDefault();
+                let uid = $('#uid').val()
+                let nickname = $('#nickname').val()
+                let height = $('#height').val()
+                let weight = $('#weight').val()
+                let location = $('#location').val();
+                let job = $('#job').val()
+                let company = $("#company").val()
+                let income = $('#income').val()
+                $.post("{:url('doupdate')}",{uid:uid,nickname:nickname,height:height,weight:weight,location:location,job:job,company:company,income:income},function (res) {
+                    if(res.status == 200){
+                        layer.msg('修改成功',{icon: 1,time: 1000});
+                        setTimeout(function () {
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index);
+                        },1000)
+                    }else{
+                        layer.msg('请稍后重试！',{icon: 5,time: 1000});
+                        setTimeout(function () {
+                            var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index);
+                        },1000)
+                    }
+                })
+            })
+
+        </script>
+
+    </body>
+
+</html>

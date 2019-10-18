@@ -1,0 +1,407 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+
+  background-color: #F94A7B;
+}
+
+.nav_wrap {
+  width: 100%;
+  height: 80px;
+  padding-left: 20%;
+  padding-right: 30%;
+  position: relative;
+
+}
+
+.nav_l {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 60px;
+  height: 55px;
+}
+
+.nav_l img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav_r {
+  position: absolute;
+  right: 0;
+  top: 18px;
+}
+
+.nav_r a {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 22px;
+  font-size: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .nav_r {
+    top: 15px;
+  }
+
+  .nav_r a {
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 26px;
+    font-size: 16px;
+  }
+}
+
+.nav_r a:nth-child(2) {
+  margin-left: 15px;
+}
+
+.sec1 {
+  padding-top: 30px;
+  background-color: #F94A7B;
+}
+
+.home_page {
+  width: 180px;
+  height: 375px;
+  margin: 0 auto;
+}
+
+.home_page img {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  text-align: center;
+  height: 100%;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.text h3 {
+  font-size: 24px;
+  color: #fff;
+}
+
+.text p {
+  font-size: 16px;
+  color: #fff;
+}
+
+.text .down {
+  position: absolute;
+  bottom: -30%;
+  left: 40%;
+  width: 68px;
+  height: 75px;
+  background: url(../img/ScrollDown.png) no-repeat center center;
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .sec1 {
+    padding-top: 50px;
+    background-color: #F94A7B;
+  }
+
+  .home_page {
+    width: 380px;
+    height: 750px;
+  }
+
+
+  .text {
+    height: 100%;
+    padding-top: 40%;
+    position: relative;
+  }
+
+  .text h3 {
+    font-size: 36px;
+    color: #fff;
+  }
+
+  .text p {
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .text .down {
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 68px;
+    height: 75px;
+    background: url(../img/ScrollDown.png) no-repeat center center;
+    background-size: contain;
+  }
+}
+
+.sec2 {
+  background-color: #fff;
+  padding: 30px 15px;
+}
+
+.item {
+  margin-top: 30px;
+  height: 335px;
+  box-shadow: 0px 10px 20px 0px rgba(221, 231, 238, 1);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.item .con_icon {
+  width: 38px;
+  height: 38px;
+  margin: 50px auto;
+}
+
+.con_icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.item h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.item p {
+  font-size: 14px;
+  color: #B2B2B2;
+}
+
+@media (min-width: 768px) {
+  .item {
+    width: 365px;
+    height: 335px;
+    box-shadow: 0px 10px 20px 0px rgba(221, 231, 238, 1);
+    border-radius: 20px;
+    margin-right: 15px;
+    text-align: center;
+  }
+
+}
+
+.sec3 {
+  padding: 30px 0;
+  background-color: #F6F6F8;
+}
+
+@media (min-width: 768px) {
+  .sec3_l {
+    padding-top: 150px;
+  }
+}
+
+.sec3_l_t {
+  text-align: center;
+}
+
+.sec3_l_t .outside {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  background: url(../img/Circles.png) no-repeat center center;
+  background-size: contain;
+  position: relative;
+}
+
+.sec3_l_t .mid {
+  width: 106px;
+  height: 106px;
+  background-color: #fff;
+  border-radius: 53px;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+}
+
+.sec3_l_t .inside {
+  width: 38px;
+  height: 38px;
+  background: url(../img/chat.png) no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  top: 34px;
+  left: 34px;
+}
+
+.sec3_l_b h3 {
+  font-size: 28px;
+}
+
+.sec3_r {
+  position: relative;
+}
+
+.sec3_chat {
+  margin: 0 auto;
+  width: 300px;
+  height: 540px;
+  background: url(../img/Right.png) no-repeat center center;
+  background-size: contain;
+}
+
+.avatar_l {
+  position: absolute;
+  top: 40%;
+  left: 10px;
+  width: 48px;
+  height: 48px;
+  background: url(../img/Image1.png) no-repeat center center;
+  background-size: contain;
+}
+
+.avatar_l::after {
+  display: block;
+  position: absolute;
+  top: -60px;
+  left: 60px;
+  content: "世上最美的风景，都不及回家的那段路；世上最深情的话";
+  width: 240px;
+  height: 84px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px 0px rgba(206, 218, 228, 1);
+  padding: 12px;
+}
+
+.avatar_r {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 48px;
+  height: 48px;
+  background: url(../img/Image2.png) no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.avatar_l::before {
+  display: block;
+  position: absolute;
+  top: 52px;
+  left: 65px;
+  content: "北京本地人，我喜欢看电影、打网球";
+  width: 240px;
+  height: 84px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px 0px rgba(206, 218, 228, 1);
+  padding: 12px;
+}
+
+@media (min-width: 768px) {
+  .avatar_l::before {
+    left: 160px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .avatar_l::before {
+    left: 260px;
+  }
+}
+
+.prick_ {
+  background-color: #F94A7B;
+}
+
+.prick p,
+.prick h3 {
+  color: #fff;
+}
+
+.prick_ .outside {
+  background-image: url(../img/Circles_w.png);
+}
+
+.sec3_l_t .inside.prick {
+  background-image: url(../img/prick.png);
+}
+
+.sec3_chat.prick {
+  background-image: url(../img/prick_con.png);
+}
+
+.card {
+  background-color: #fff;
+  padding: 30px 0;
+}
+
+.sec3_chat.card {
+  background-image: url(../img/card.png);
+}
+
+.card h3 {
+  color: #000;
+}
+
+.card h3.top {
+  color: #F94A7B;
+}
+
+.card p {
+  font-size: 12px;
+  color: #919191;
+}
+.show_con{
+  background-color: #F6F6F8;
+  padding: 30px 0;
+}
+.show {
+  width: 280px;
+  margin: 0 45px;
+}
+
+.show img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 414px) {
+  .show {
+    margin: 0 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .show {
+    margin: 0;
+    width: 240px;
+  }
+}
+
+footer {
+  width: 100%;
+  height: 266px;
+  background-color: #F6F6F8;
+}
+footer img{
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 768px) {
+  footer {
+    height:426px;
+  }
+}
