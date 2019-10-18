@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '125.65.82.84',
+    'hostname'        => '',
     // 数据库名
-    'database'        => 'prick',
+    'database'        => 'x',
     // 用户名
-    'username'        => 'prick',
+    'username'        => 'x',
     // 密码
-    'password'        => 'prick666',
+    'password'        => 'x',
     // 端口
     'hostport'        => '',
     // 连接dsn
